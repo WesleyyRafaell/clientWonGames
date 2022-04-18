@@ -18,8 +18,7 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "yarn lint --fix",
-      "yarn test --findRelatedTests --bail"
+      "yarn lint --fix"
     ]
   },
   "dependencies": {
@@ -57,7 +56,7 @@
     "plop": "^3.0.5",
     "prettier": "^2.4.1",
     "storybook-addon-next-router": "^3.0.8",
-    "typescript": "^4.5.5",
+    "typescript": "^4.6.3",
     "webpack": "5.68.0"
   }
 }
