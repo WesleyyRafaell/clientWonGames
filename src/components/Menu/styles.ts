@@ -98,8 +98,8 @@ export const MenuFull = styled.nav<MenuFullProps>`
     right: 0;
     height: 100vh;
     overflow: hidden;
-    transition: opacity 0.3s ease-in-out;
     opacity: ${isOpen ? 1 : 0};
+    transition: opacity 0.3s ease-in-out;
     pointer-events: ${isOpen ? 'all' : 'none'};
     visibility: ${isOpen ? 'visible' : 'hidden'};
     > svg {
