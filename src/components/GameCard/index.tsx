@@ -44,8 +44,7 @@ const GameCard = ({
         unoptimized
         src={img}
         alt={title}
-        width={300}
-        height={140}
+        layout="fill"
         objectFit="cover"
       />
     </S.ImageBox>
