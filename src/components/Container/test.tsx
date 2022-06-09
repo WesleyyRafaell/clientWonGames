@@ -14,12 +14,12 @@ describe('<Container />', () => {
 
     expect(screen.getByText('Won Games').parentElement).toHaveStyleRule(
       'max-width',
-      theme.grid.container
+      theme.grid.containerSmall
     )
 
     expect(screen.getByText('Won Games').parentElement).toMatchInlineSnapshot(`
       .c0 {
-        max-width: 130rem;
+        max-width: 120rem;
         margin-left: auto;
         margin-right: auto;
         padding-left: calc(3.2rem / 2);

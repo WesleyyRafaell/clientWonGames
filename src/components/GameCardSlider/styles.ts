@@ -1,46 +1,57 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-type WrapperProps = {
-  color?: 'white' | 'black'
-}
+import { GameCardSliderProps } from '.'
 
-export const Wrapper = styled.main<WrapperProps>`
+type WrapperProps = Pick<GameCardSliderProps, 'color'>
+
+export const Wrapper = styled.section<WrapperProps>`
   ${({ theme, color }) => css`
-    .slick-slider.slick-initialized {
-      display: flex;
-    }
-    .slick-arrow {
-      width: 1.8rem;
-      cursor: pointer;
-    }
-
+    ${media.lessThan('huge')`
+      overflow-x: hidden;
+    `}
+    .slick-track,
     .slick-list {
+      display: flex;
       width: 100%;
-      margin: 0 3.8rem;
     }
-
     .slick-slide > div {
       margin: 0 ${theme.spacings.xxsmall};
+      flex: 1 0 auto;
+      height: 100%;
     }
-
-    .slick-arrow {
+    .slick-list {
+      margin: 0 -${theme.spacings.xxsmall};
+    }
+    ${media.greaterThan('large')`
+      .slick-slide > div {
+        margin: 0 ${theme.spacings.xsmall};
+      }
+      .slick-list {
+        margin: 0 -${theme.spacings.xsmall};
+      }
+    `}
+    .slick-prev,
+    .slick-next {
+      display: block;
       color: ${theme.colors[color!]};
-      transition: opacity 0.3s linear;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0;
+      transform: translate(0, -50%);
     }
-    .slick-arrow.slick-disabled {
-      opacity: 0;
+    .slick-prev {
+      left: -${theme.spacings.xxlarge};
+    }
+    .slick-next {
+      right: -${theme.spacings.xxlarge};
+    }
+    .slick-prev.slick-disabled,
+    .slick-next.slick-disabled {
       visibility: hidden;
     }
-
-    ${media.lessThan('large')`
-    .slick-list, .slick-slide > div  {
-      margin: 0;
-    }
-
-    .slick-slide > div {
-      margin-right: ${theme.spacings.xsmall};
-    }
-  `}
   `}
 `
