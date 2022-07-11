@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import Checkbox, { CheckBoxProps } from '.'
 
 export default {
-  title: 'Checkbox',
+  title: 'Form/Checkbox',
   component: Checkbox,
   parameters: {
     layout: 'fullscreen',
