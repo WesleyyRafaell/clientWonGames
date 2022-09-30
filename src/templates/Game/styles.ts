@@ -71,3 +71,6 @@ export const SectionGameDetails = styled(Section)`
     }
   `}
 `
+export const SectionUpcoming = styled(Section)``
+
+export const SectionRecommendedGames = styled(Section)``

@@ -8,6 +8,7 @@ import * as S from './styles'
 import TextContent from 'components/TextContent'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
+import Showcase from 'components/Showcase'
 // import Showcase from 'components/Showcase'
 
 export type GameTemplateProps = {
@@ -16,8 +17,8 @@ export type GameTemplateProps = {
   gallery?: GalleryImageProps[]
   description: string
   details: GameDetailsProps
-  upcommingGames: GameCardProps[]
-  upcommingHighlight: HighlightProps
+  upcomingGames: GameCardProps[]
+  upcomingHighlight: HighlightProps
   recommendedGames: GameCardProps[]
 }
 
@@ -26,7 +27,10 @@ const Game = ({
   gameInfo,
   gallery,
   description,
-  details
+  details,
+  upcomingGames,
+  upcomingHighlight,
+  recommendedGames
 }: GameTemplateProps) => (
   <Base>
     <S.Cover src={cover} role="image" aria-label="cover" />
@@ -48,13 +52,22 @@ const Game = ({
         <GameDetails {...details} />
       </S.SectionGameDetails>
 
-      {/* <Showcase
-        title="Upcomming"
-        games={upcommingGames}
-        highlight={upcommingHighlight}
-      />
+      <S.SectionUpcoming>
+        <Showcase
+          title="Upcoming"
+          titleProps={{ lineLeft: true, lineColor: 'secondary' }}
+          highlight={upcomingHighlight}
+          gamesProps={{ items: upcomingGames, color: 'white' }}
+        />
+      </S.SectionUpcoming>
 
-      <Showcase title="You may like these games" games={recommendedGames} /> */}
+      <S.SectionRecommendedGames>
+        <Showcase
+          title="You may like these games"
+          titleProps={{ lineLeft: true, lineColor: 'secondary' }}
+          gamesProps={{ items: recommendedGames, color: 'white' }}
+        />
+      </S.SectionRecommendedGames>
     </S.Main>
   </Base>
 )
