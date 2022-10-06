@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+export const Content = styled.div`
+  ${({ theme }) => css`
+    margin-top: ${theme.spacings.large};
+  `}
+`
+
 export const SectionFooter = styled.section`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.large};
