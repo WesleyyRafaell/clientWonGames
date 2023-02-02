@@ -33,7 +33,11 @@ const TextField = ({
 
   return (
     <S.Wrapper error={!!error}>
-      {!!label && <S.Label htmlFor={name}>{label}</S.Label>}
+      {!!label && (
+        <S.Label disabled={disabled} htmlFor={name}>
+          {label}
+        </S.Label>
+      )}
       <S.InputWrapper
         hasIcon={!!icon}
         iconPosition={iconPosition}

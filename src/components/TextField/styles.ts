@@ -96,10 +96,14 @@ export const Input = styled.input`
   `}
 `
 
-export const Label = styled.label`
-  ${({ theme }) => css`
+type LabelProps = {
+  disabled: boolean
+}
+
+export const Label = styled.label<LabelProps>`
+  ${({ theme, disabled }) => css`
     font-size: ${theme.font.sizes.small};
-    color: ${theme.colors.black};
+    color: ${!disabled ? theme.colors.black : theme.colors.gray};
     cursor: pointer;
   `}
 `
