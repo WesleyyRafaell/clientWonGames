@@ -17,5 +17,8 @@ export default {
 } as Meta
 
 export const Default: Story<ExploreSidebarProps> = (args) => (
-  <ExploreSidebar {...args} />
+  <ExploreSidebar
+    {...args}
+    initialValues={{ windows: true, linux: true, sort_by: 'high-to-low' }}
+  />
 )
