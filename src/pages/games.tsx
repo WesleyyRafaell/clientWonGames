@@ -1,14 +1,16 @@
 import GamesTemplate, { GamesTemplateProps } from 'templates/Games'
+import gamesMock from 'components/GameCardSlider/mock'
+import filterItemsMock from 'components/ExploreSidebar/mock'
 
 export default function Orders(props: GamesTemplateProps) {
-  console.log(props)
-  return <GamesTemplate />
+  return <GamesTemplate {...props} />
 }
 
 export function getServerSideProps() {
   return {
     props: {
-      games: []
+      games: gamesMock,
+      filterItems: filterItemsMock
     }
   }
 }
