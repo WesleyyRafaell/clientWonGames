@@ -18,4 +18,11 @@ describe('<CartList />', () => {
 
     expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
   })
+
+  it('should render empty Dropdown', () => {
+    renderWithTheme(<CartList />)
+
+    expect(screen.getByText('Your cart is empty')).toBeInTheDocument()
+    expect(screen.queryByText(/total/i)).not.toBeInTheDocument()
+  })
 })
