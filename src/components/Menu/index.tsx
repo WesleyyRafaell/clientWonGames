@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart'
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
@@ -9,6 +8,9 @@ import * as S from './styles'
 import Button from 'components/Button'
 import MediaMatch from 'components/MediaMatch'
 import Link from 'next/link'
+import CartDropdown from 'components/CartDropdown'
+import CartIcon from 'components/CartIcon'
+import UserDropdown from 'components/UserDropDown'
 
 export type MenuProps = {
   username?: string
@@ -38,7 +40,7 @@ const Menu = ({ username }: MenuProps) => {
           <Link href="/" passHref>
             <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/games" passHref>
             <S.MenuLink>Store</S.MenuLink>
           </Link>
         </S.MenuNav>
@@ -49,29 +51,46 @@ const Menu = ({ username }: MenuProps) => {
           <SearchIcon aria-label="Search" />
         </S.IconWrapper>
         <S.IconWrapper>
-          <ShoppingCartIcon aria-label="Open shopping cart" />
-        </S.IconWrapper>
-        {!username && (
           <MediaMatch greaterThan="medium">
+            <CartDropdown />
+          </MediaMatch>
+          <MediaMatch lessThan="medium">
+            <Link href="/cart">
+              <a>
+                <CartIcon />
+              </a>
+            </Link>
+          </MediaMatch>
+        </S.IconWrapper>
+        <MediaMatch greaterThan="medium">
+          {!username ? (
             <Link href="/sign-in" passHref>
               <Button as="a">Sign in</Button>
             </Link>
-          </MediaMatch>
-        )}
+          ) : (
+            <UserDropdown username={username} />
+          )}
+        </MediaMatch>
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
         <S.MenuNav>
           <Link href="/" passHref>
-            <S.MenuLink href="#">Home</S.MenuLink>
+            <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <S.MenuLink href="#">Store</S.MenuLink>
+          <Link href="/games" passHref>
+            <S.MenuLink>Store</S.MenuLink>
+          </Link>
 
           {!!username && (
             <>
-              <S.MenuLink href="#">My account</S.MenuLink>
-              <S.MenuLink href="#">Wishlist</S.MenuLink>
+              <Link href="/profile/me" passHref>
+                <S.MenuLink>My account</S.MenuLink>
+              </Link>
+              <Link href="/wishlist" passHref>
+                <S.MenuLink>Wishlist</S.MenuLink>
+              </Link>
             </>
           )}
         </S.MenuNav>
