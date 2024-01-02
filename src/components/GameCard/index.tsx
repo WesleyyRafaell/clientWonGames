@@ -11,7 +11,7 @@ import * as S from './styles'
 export type GameCardProps = {
   title: string
   developer: string
-  img: string
+  img: string | null
   price: string
   promotionalPrice?: string
   favorite?: boolean
@@ -40,13 +40,23 @@ const GameCard = ({
       </Ribbon>
     )}
     <S.ImageBox>
-      <Image
-        unoptimized
-        src={img}
-        alt={title}
-        layout="fill"
-        objectFit="cover"
-      />
+      {img ? (
+        <Image
+          unoptimized
+          src={`http://localhost:1337${img}`}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+        />
+      ) : (
+        <Image
+          unoptimized
+          src="/img/no-game-image.jpg"
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+        />
+      )}
     </S.ImageBox>
     <S.Content>
       <S.Info>
