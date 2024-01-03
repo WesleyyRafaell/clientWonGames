@@ -1,7 +1,7 @@
 import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
 import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
 import GameCard, { GameCardProps } from 'components/GameCard'
-import Slider, { SliderSetings } from 'components/Slider'
+import Slider, { SliderSettings } from 'components/Slider'
 import * as S from './styles'
 
 export type GameCardSliderProps = {
@@ -9,7 +9,7 @@ export type GameCardSliderProps = {
   color?: 'white' | 'black'
 }
 
-const settings: SliderSetings = {
+const settings: SliderSettings = {
   slidesToShow: 4,
   infinite: false,
   lazyLoad: 'ondemand',
