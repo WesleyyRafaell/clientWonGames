@@ -5,6 +5,7 @@ import GameCard from '.'
 
 const props = {
   title: 'Population Zero',
+  slug: 'population-zero',
   developer: 'Rockstar Games',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
   price: 'R$ 235,00'
@@ -15,6 +16,7 @@ describe('<GameCard />', () => {
     renderWithTheme(
       <GameCard
         title="Population Zero"
+        slug="population-zero"
         developer="Rockstar Games"
         img="https://source.unsplash.com/user/willianjusten/300x140"
         price="R$ 235,00"
@@ -24,6 +26,11 @@ describe('<GameCard />', () => {
     expect(
       screen.getByRole('heading', { name: /Population Zero/i })
     ).toBeInTheDocument()
+
+    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
+      'href',
+      `/game/${props.slug}`
+    )
 
     expect(
       screen.getByRole('heading', { name: /Rockstar Games/i })
@@ -41,6 +48,7 @@ describe('<GameCard />', () => {
     renderWithTheme(
       <GameCard
         title="Population Zero"
+        slug="population-zero"
         developer="Rockstar Games"
         img="https://source.unsplash.com/user/willianjusten/300x140"
         price="R$ 235,00"
@@ -62,6 +70,7 @@ describe('<GameCard />', () => {
     renderWithTheme(
       <GameCard
         title="Population Zero"
+        slug="population-zero"
         developer="Rockstar Games"
         img="https://source.unsplash.com/user/willianjusten/300x140"
         price="R$ 200,00"
