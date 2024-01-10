@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         description: game.attributes?.short_description
       },
       gallery: game.attributes?.gallery?.data.map((item) => ({
-        src: item.attributes?.src,
+        src: `http://localhost:1337${item.attributes?.src}`,
         label: item.attributes?.label
       })),
       description: game.attributes?.description,

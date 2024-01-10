@@ -8,7 +8,7 @@ const props = {
   slug: 'population-zero',
   developer: 'Rockstar Games',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
-  price: 'R$ 235,00'
+  price: 235
 }
 
 describe('<GameCard />', () => {
@@ -19,7 +19,7 @@ describe('<GameCard />', () => {
         slug="population-zero"
         developer="Rockstar Games"
         img="https://source.unsplash.com/user/willianjusten/300x140"
-        price="R$ 235,00"
+        price={235}
       />
     )
 
@@ -51,17 +51,17 @@ describe('<GameCard />', () => {
         slug="population-zero"
         developer="Rockstar Games"
         img="https://source.unsplash.com/user/willianjusten/300x140"
-        price="R$ 235,00"
+        price={235}
       />
     )
 
     // preço não tenha line-through
     // preço tenha o background secundário
-    expect(screen.getByText('R$ 235,00')).not.toHaveStyle({
+    expect(screen.getByText('$235.00')).not.toHaveStyle({
       'text-decoration': 'line-through'
     })
 
-    expect(screen.getByText('R$ 235,00')).toHaveStyle({
+    expect(screen.getByText('$235.00')).toHaveStyle({
       'background-color': '#3CD3C1'
     })
   })
@@ -73,19 +73,19 @@ describe('<GameCard />', () => {
         slug="population-zero"
         developer="Rockstar Games"
         img="https://source.unsplash.com/user/willianjusten/300x140"
-        price="R$ 200,00"
-        promotionalPrice="R$ 15,00"
+        price={200}
+        promotionalPrice={15}
       />
     )
     // renderiza o componente (COM promotionalPrice) // 200 reais // 15 reais
-    expect(screen.getByText('R$ 200,00')).toBeInTheDocument()
-    expect(screen.getByText('R$ 15,00')).toBeInTheDocument()
+    expect(screen.getByText('$200.00')).toBeInTheDocument()
+    expect(screen.getByText('$15.00')).toBeInTheDocument()
     // preço tenha line-through (200)
-    expect(screen.getByText('R$ 200,00')).toHaveStyle({
+    expect(screen.getByText('$200.00')).toHaveStyle({
       'text-decoration': 'line-through'
     })
     // preço novo promocional não vai ter line-through (15)
-    expect(screen.getByText('R$ 15,00')).not.toHaveStyle({
+    expect(screen.getByText('$15.00')).not.toHaveStyle({
       'text-decoration': 'line-through'
     })
   })

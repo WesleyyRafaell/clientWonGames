@@ -7,16 +7,17 @@ import {
 } from '@styled-icons/material-outlined'
 
 import * as S from './styles'
+import formatPrice from 'utils/format-price'
 
 export type GameInfoProps = {
   title: string
-  price: string
+  price: number
   description: string
 }
 
 const Gameinfo = ({ title, price, description }: GameInfoProps) => (
   <S.Wrapper>
-    <Ribbon color="secondary">R$ {price}</Ribbon>
+    <Ribbon color="secondary">{formatPrice(price)}</Ribbon>
     <Heading color="black" lineBottom lineColor="primary">
       {title}
     </Heading>
