@@ -22,7 +22,7 @@ const Showcase = ({
     {!!highlight && <Highlight {...highlight} />}
 
     {!!gamesProps && (
-      <GameCardSlider items={gamesProps?.items} color={gamesProps.color} />
+      <GameCardSlider items={gamesProps?.items} color={gamesProps?.color} />
     )}
   </S.Sections>
 )
